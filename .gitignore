@@ -25,7 +25,6 @@ dbt/logs/
 # Airflow logs
 logs/
 
-
 # Ignore Python egg-info directories
 api_library_package/*.egg-info/
 
