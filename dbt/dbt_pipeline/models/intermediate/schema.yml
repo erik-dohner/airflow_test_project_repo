@@ -1,0 +1,6 @@
+version: 2
+
+models:
+  - name: int_sm_joined
+
+  - name: int_sm_pivoted

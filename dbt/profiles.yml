@@ -1,0 +1,27 @@
+dbt_pipeline:
+  target: "{{ env_var('APP_ENV', 'dev') }}" # this is using the env_var marco in dbt, defaults to 'dev'
+  outputs:
+    dev:
+      dataset: pipeline
+      job_execution_timeout_seconds: 300
+      job_retries: 1
+      keyfile: "{{ env_var('GOOGLE_APPLICATION_CREDENTIALS', '') }}" # this is using the env_var marco in dbt, defaults to ''
+      location: US
+      dataproc_region: us-central1
+      method: service-account
+      priority: interactive
+      project: dbt-test-449821
+      threads: 1
+      type: bigquery
+      gcs_bucket: dbt_python_scripts
+
+
+    prod:
+      dataset: # different dataset id, however, same naming convention as dev tables
+      location: US
+      method: oauth
+      project: # need to fill in prod dev in bigquery
+      threads: 1
+      type: bigquery
+
+

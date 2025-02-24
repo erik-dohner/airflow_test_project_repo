@@ -1,0 +1,13 @@
+version: 2
+
+sources:
+  - name: raw_data
+    database: dbt-test-449821
+    schema: pipeline
+    tables:
+      - name: raw_sm_responses
+        description: "Raw response records from SurveyMoneky"
+
+      - name: raw_sm_questions
+        description: "Raw question and answer records from SurveyMoneky"
+  

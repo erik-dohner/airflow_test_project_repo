@@ -1,0 +1,49 @@
+# OS-specific files
+Thumbs.db
+.DS_Store
+
+# Python bytecode
+__pycache__/
+*.pyc
+*.pyo
+api_library_package/__pycache__/
+api_library_package/ac_api/__pycache__/
+api_library_package/gcp_api/__pycache__/
+api_library_package/sm_api/__pycache__/
+dags/__pycache__/
+python_scripts/manual_pipeline/__pycache__/
+python_scripts/pipeline_setup/__pycache__/
+python_scripts/test_pipeline/__pycache__/
+
+# dbt directory
+dbt/dbt_pipeline/target/
+dbt/dbt_pipeline/dbt_packages/
+dbt/dbt_pipeline/logs/
+dbt/dbt_pipeline/compiled/
+dbt/logs/
+
+# Airflow logs
+logs/
+
+
+# Ignore Python egg-info directories
+api_library_package/*.egg-info/
+
+# Environment files
+.env
+venv/
+env/
+.envrc
+
+# Log files
+*.log
+
+# Airflow DB
+airflow.db
+
+# Secrets --> remove when posting publicly 
+api_library_package/api_library/ac_api/activecampaign_api_config.json
+api_library_package/api_library/sm_api/sm_api_config.json
+api_library_package/api_library/sm_api/survey_details.json
+gcp_service_account.json
+

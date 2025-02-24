@@ -1,0 +1,15 @@
+
+version: 2
+
+models:
+  - name: stg_sm_responses
+    
+
+  - name: stg_sm_questions
+
+
+  - name: stg_sm_answers
+
+
+  - name: stg_sm_other
+  

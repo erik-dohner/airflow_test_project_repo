@@ -1,0 +1,18 @@
+version: 2
+
+models:
+  - name: fct_sm_responses
+    columns: 
+      - name: survey_id
+        descrition: "Foreign key linking to dim_sm_surveys"
+        tests:
+          - relationships:
+              to: ref('dim_sm_surveys')
+              field: survey_id
+
+
+models:
+  - name: dim_sm_surveys
+    columns:
+      - name: survey_id
+        description: "primary key for the survey dimension"
