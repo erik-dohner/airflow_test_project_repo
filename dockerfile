@@ -31,6 +31,8 @@ RUN if [ "${APP_ENV}" = "dev" ]; then \
 
 # Install dependencies 
 RUN pip install -r api_library_package/requirements.txt
+RUN pip install -e ./api_library_package
+
 
 # Expose the port that Flask will run on
 EXPOSE 8080

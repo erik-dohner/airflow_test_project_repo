@@ -15,7 +15,6 @@ apache-airflow-providers-http==4.13.1
 apache-airflow-providers-imap==3.7.0
 apache-airflow-providers-smtp==1.8.0
 apache-airflow-providers-sqlite==3.9.0
--e git+https://github.com/erik-dohner/airflow_test_project_repo.git@d522ce3fd9fd11c7d37cfc992f6ed62645b4c1d8#egg=api_library&subdirectory=api_library_package
 apispec==6.6.1
 argcomplete==3.5.3
 asgiref==3.8.1
