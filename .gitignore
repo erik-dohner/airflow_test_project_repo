@@ -41,8 +41,8 @@ env/
 airflow.db
 
 # Secrets --> remove when posting publicly 
-api_library_package/api_library/ac_api/activecampaign_api_config.json
-api_library_package/api_library/sm_api/sm_api_config.json
-api_library_package/api_library/sm_api/survey_details.json
+activecampaign_api_config.json
+sm_api_config.json
+survey_details.json
 gcp_service_account.json
 

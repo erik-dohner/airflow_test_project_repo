@@ -39,7 +39,10 @@ with DAG(
     
     fetch_responses_task = PythonOperator(
         task_id='fetch_responses', 
-        python_callable=fetch_responses
+        python_callable=fetch_responses,
+        op_kwargs={
+            'survey_id': 520007028
+        }
     )
     
     parse_responses_task = PythonOperator(
@@ -52,15 +55,15 @@ with DAG(
         python_callable=bq_laod
     )
     
-    # dbt_run_task = BashOperator(
-    #     task_id='dbt_run',       
-    #     bash_command='cmd.exe /c "dbt run"'
-    # )
-    
-    dbt_run_task = PythonOperator(
-        task_id='dbt_run', 
-        python_callable=run_dbt
+    dbt_run_task = BashOperator(
+        task_id='dbt_run',       
+        bash_command='dbt run'
     )
+    
+    # dbt_run_task = PythonOperator(
+    #     task_id='dbt_run', 
+    #     python_callable=run_dbt
+    # )
     
     fetch_sm_poor_fair_task = PythonOperator(
         task_id='fetch_sm_poor_fair',

@@ -8,10 +8,36 @@ logging.basicConfig(level=logging.INFO)
 
 class ACConnect():
     def __init__(self, tag):
-        self.api_url = os.getenv('AC_API_URL')
-        self.api_key = os.getenv('AC_API_KEY')
+        self.current_directory = os.path.dirname(os.path.realpath(__file__))
+        self.activecampaign_api_config_dict = self.fetch_config_file()
+        self.api_url = self.activecampaign_api_config_dict.get('url')
+        self.api_key = self.activecampaign_api_config_dict.get('active_campaign_api_key')
         self.tag = tag
         
+    
+    
+    def fetch_config_file(self):
+        """find the config json for ActiveCampaign. Returns a python dictoary of the config json"""
+        # find the config file within that directory
+        config_path = os.path.join(self.current_directory, 'activecampaign_api_config.json')
+
+        # log confirmation of the config files existance
+        if not os.path.exists(config_path):
+            logging.error(f'activecampaign_api_config.json not found at {config_path}. Failing task.')
+            raise FileNotFoundError(f'Config file not found at {config_path}')
+            
+        logging.info(f"activecampaign_api_config.json found at {config_path}")
+
+        # Load the JSON config
+        try:
+            with open(config_path) as file:
+                activecampaign_api_config = json.load(file) #json.load converts key-value pairs to python dictoary 
+            logging.info('Successfully loaded sm_api_config.json')
+        except Exception as e:
+            logging.error(f'Fail_ced to load sm_apionfig.json: {str(e)}')
+            raise 
+            
+        return activecampaign_api_config
     
     def fetch_contact_id(self, email):
         """Fetch the ActiveCampaign contact id for a provided email address.

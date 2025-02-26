@@ -10,10 +10,10 @@ import json
 import pandas as pd
 
 
-def fetch_responses(survey_id):
+def fetch_responses():
     """Fetch all responses to survey since the specified date"""
     # Initalize the survey monkey api
-    sm_conn = SMConnect(survey_id)
+    sm_conn = SMConnect()
     
     # Initalzie the BigQuery api --> create client
     bq_conn = BQConnect()
